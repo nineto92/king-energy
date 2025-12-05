@@ -1,0 +1,636 @@
+<html lang="en" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KING ENERGY | Wear Your Courage</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://js.paystack.co/v1/inline.js"></script> <!-- Paystack Script -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Montserrat:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
+    <style>
+        /* Minimal custom scrollbar for dark theme consistency */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #444; }
+        
+        /* Modal Transition */
+        #checkout-overlay { transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out; }
+        .hidden-modal { opacity: 0; visibility: hidden; pointer-events: none; }
+        .visible-modal { opacity: 1; visibility: visible; pointer-events: auto; }
+    </style>
+</head>
+<body class="bg-[#050505] text-neutral-200 font-sans antialiased selection:bg-[#D4AF37] selection:text-black pb-24 md:pb-0 relative">
+
+    <!-- SECTION 1: HERO HEADLINE -->
+    <header class="pt-24 pb-8 px-6 text-center max-w-7xl mx-auto">
+        <h1 class="font-['Montserrat'] text-[#D4AF37] text-5xl md:text-7xl font-extrabold tracking-tight leading-tight uppercase mb-6 drop-shadow-lg">
+            King Energy Is The New Nigeria<br>
+            <span class="text-white">Wear Your Courage.</span>
+        </h1>
+    </header>
+
+    <!-- SECTION 2: SUB-HEADLINE -->
+    <section class="px-6 text-center max-w-3xl mx-auto mb-16">
+        <p class="text-lg md:text-xl text-neutral-400 font-medium leading-relaxed">
+            When the nation trembles, a new identity rises. Wear the symbol of strength, unity and fearlessness — join the movement.
+        </p>
+    </section>
+
+    <!-- SECTION 3: HERO VISUAL -->
+    <section class="w-full relative h-[60vh] md:h-[80vh] overflow-hidden group">
+        <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a687426a-ac7f-42e9-8b00-646557350b34_3840w.jpg" alt="King Energy Hero" class="absolute inset-0 w-full h-full object-cover object-top opacity-80 group-hover:scale-105 transition-transform duration-700 ease-out">
+        <div class="bg-gradient-to-t from-[#050505] via-[#050505]/40 to-transparent absolute top-0 right-0 bottom-0 left-0"></div>
+        
+        <div class="absolute bottom-12 left-0 right-0 text-center px-6">
+            <p class="font-['Montserrat'] text-white/90 text-sm md:text-base tracking-widest uppercase font-semibold">
+                Nigeria is hurting. Courage is rising.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 4: ONE-LINE VALUE PROPOSITION -->
+    <section class="bg-black py-16 px-6 border-b border-white/10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-['Montserrat'] text-2xl md:text-4xl text-white font-semibold tracking-tight leading-snug">
+                Not fashion. Not hype. A national movement. 
+                <span class="text-neutral-500">A symbol you wear to show the world — you refuse to bow to fear.</span>
+            </h2>
+        </div>
+    </section>
+
+    <!-- SECTION 5: PRODUCT OFFER BLOCK (Core Engine) -->
+    <section id="products" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-['Montserrat'] text-[#D4AF37] text-3xl font-semibold tracking-tight uppercase inline-block border-b border-[#D4AF37]/30 pb-2">
+                Pick Your Pack — Order Now
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-24">
+            
+            <!-- COLUMN 1: THE SINGLE -->
+            <div class="group bg-neutral-900/50 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300 rounded-xl overflow-hidden flex flex-col h-full">
+                <div class="h-64 overflow-hidden bg-neutral-800 relative">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/de85599f-bdb9-4ec1-87e8-09753b23986e_800w.png" alt="Single Tee" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <h3 class="font-['Montserrat'] text-2xl text-white font-semibold mb-2">Single Tee Pack</h3>
+                    <p class="text-[#D4AF37] text-xl font-mono mb-4">₦10,000</p>
+                    <p class="text-neutral-400 text-sm mb-6 flex-grow">King Energy T-shirt (Any Design) + Sticker.</p>
+                    <div class="space-y-2 mb-8 text-xs text-neutral-500 font-medium uppercase tracking-wide">
+                        <div class="flex items-center gap-2"><svg data-lucide="check" class="w-4 h-4 text-[#D4AF37]"></svg> Premium Cotton</div>
+                        <div class="flex items-center gap-2"><svg data-lucide="truck" class="w-4 h-4 text-[#D4AF37]"></svg> Ships in 2-5 days</div>
+                    </div>
+                    <button onclick="openCheckout('Single Tee Pack', 10000)" class="w-full block text-center bg-transparent border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black py-4 rounded-lg font-semibold tracking-wide transition-all duration-300 uppercase text-sm">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- COLUMN 2: THE HOODIE -->
+            <div class="group bg-neutral-900/50 border border-white/10 hover:border-[#D4AF37]/50 transition-all duration-300 rounded-xl overflow-hidden flex flex-col h-full relative">
+                <div class="absolute top-4 right-4 bg-white text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider rounded-sm z-10">Popular</div>
+                <div class="h-64 overflow-hidden bg-neutral-800 relative">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7e042dc2-a9da-40e6-a5db-686c41af309a_800w.png" alt="Hoodie" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <h3 class="font-['Montserrat'] text-2xl text-white font-semibold mb-2">Hoodie</h3>
+                    <p class="text-[#D4AF37] text-xl font-mono mb-4">₦18,000</p>
+                    <p class="text-neutral-400 text-sm mb-6 flex-grow">Premium King Energy Hoodie + Sticker + Thank You Card.</p>
+                    <div class="space-y-2 mb-8 text-xs text-neutral-500 font-medium uppercase tracking-wide">
+                        <div class="flex items-center gap-2"><svg data-lucide="shield" class="w-4 h-4 text-[#D4AF37]"></svg> Heavyweight Comfort</div>
+                        <div class="flex items-center gap-2"><svg data-lucide="truck" class="w-4 h-4 text-[#D4AF37]"></svg> Ships in 2-5 days</div>
+                    </div>
+                    <button onclick="openCheckout('Hoodie', 18000)" class="w-full block text-center bg-transparent border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-black py-4 rounded-lg font-semibold tracking-wide transition-all duration-300 uppercase text-sm">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+
+            <!-- COLUMN 3: FOUNDING KING COMBO -->
+            <div class="group bg-gradient-to-b from-neutral-900 to-black border border-[#D4AF37] shadow-[0_0_30px_rgba(212,175,55,0.1)] rounded-xl overflow-hidden flex flex-col h-full transform md:-translate-y-4">
+                <div class="bg-[#D4AF37] text-black text-center py-2 text-xs font-bold uppercase tracking-widest">
+                    Best Value • Limited Edition
+                </div>
+                <div class="h-64 overflow-hidden bg-neutral-800 relative">
+                    <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ccd4386b-2add-41f7-bb02-aebb1f71192f_800w.jpg" alt="Combo Pack" class="group-hover:scale-105 transition-transform duration-500 w-full h-full object-cover">
+                </div>
+                <div class="p-8 flex flex-col flex-grow">
+                    <h3 class="font-['Montserrat'] text-2xl text-[#D4AF37] font-semibold mb-2">Founding King Combo</h3>
+                    <p class="text-white text-3xl font-mono mb-4">₦25,000</p>
+                    <p class="text-neutral-300 text-sm mb-6 flex-grow">Tee + Hoodie + Limited Edition Wristband + Founding King Certificate.</p>
+                    
+                    <div class="bg-neutral-800/50 rounded-lg p-3 mb-6 border border-white/5">
+                        <p class="text-xs text-[#D4AF37] flex items-center gap-2">
+                            <svg data-lucide="alert-triangle" class="w-4 h-4"></svg> Only first 2,000 orders
+                        </p>
+                    </div>
+
+                    <button onclick="openCheckout('Founding King Combo', 25000)" class="w-full block text-center bg-[#D4AF37] text-black hover:bg-white hover:text-black py-5 rounded-lg font-bold tracking-wide transition-all duration-300 uppercase text-sm shadow-[0_0_15px_rgba(212,175,55,0.4)] animate-pulse hover:animate-none">
+                        Buy Now
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- NEW SUB-SECTION: SINGLE TEE OPTIONS -->
+        <div class="pt-12 border-t border-white/10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+                <div class="">
+                    <span class="text-[#D4AF37] font-mono text-xs uppercase tracking-widest mb-2 block">The Collection</span>
+                    <h3 class="font-['Montserrat'] text-2xl md:text-3xl text-white font-semibold tracking-tight">Single Tee Editions</h3>
+                    <p class="text-neutral-400 text-sm mt-2 max-w-lg">Choose the design that speaks to your spirit. All single tees are ₦10,000.</p>
+                </div>
+                <a href="#" class="text-xs text-white border-b border-[#D4AF37] pb-0.5 hover:text-[#D4AF37] transition-colors">View Size Guide</a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- OPTION 1: ORIGINAL BLACK -->
+                <div class="group cursor-pointer" onclick="openCheckout('The Original - Black', 10000)">
+                    <div class="relative bg-neutral-900 rounded-lg overflow-hidden border border-white/5 group-hover:border-[#D4AF37]/50 transition-all duration-300">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/95677ffd-dc64-4f66-b00f-4ab1ecc06b3a_800w.png" alt="Black Original" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100">
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                            <span class="bg-white text-black text-[10px] font-bold px-2 py-0.5 uppercase rounded-sm">Classic</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-white font-medium text-base font-['Montserrat']">The Original - Black</h4>
+                        <p class="text-[#D4AF37] font-mono text-sm mt-1">₦10,000</p>
+                        <button class="mt-3 w-full text-xs font-semibold uppercase tracking-wider py-2 border border-neutral-700 rounded text-neutral-400 hover:text-white hover:border-white transition-colors">Select &amp; Pay</button>
+                    </div>
+                </div>
+
+                <!-- OPTION 2: PURE WHITE -->
+                <div class="group cursor-pointer" onclick="openCheckout('The Original - White', 10000)">
+                    <div class="relative bg-neutral-900 rounded-lg overflow-hidden border border-white/5 group-hover:border-[#D4AF37]/50 transition-all duration-300">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/93dbf49e-ddb7-4236-9d6d-12565837fff8_1600w.png" alt="White Tee" class="group-hover:scale-105 transition-transform duration-500 group-hover:opacity-100 opacity-90 w-full h-full object-cover">
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-white font-medium text-base font-['Montserrat']">The Original - White</h4>
+                        <p class="text-[#D4AF37] font-mono text-sm mt-1">₦10,000</p>
+                        <button class="mt-3 w-full text-xs font-semibold uppercase tracking-wider py-2 border border-neutral-700 rounded text-neutral-400 hover:text-white hover:border-white transition-colors">Select &amp; Pay</button>
+                    </div>
+                </div>
+
+                <!-- OPTION 3: BOLD TEXT EDITION -->
+                <div class="group cursor-pointer" onclick="openCheckout('Bold Statement Tee', 10000)">
+                    <div class="relative bg-neutral-900 rounded-lg overflow-hidden border border-white/5 group-hover:border-[#D4AF37]/50 transition-all duration-300">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ac4daad1-87dd-4a32-ae40-767a3796da5e_1600w.png" alt="Bold Text" class="group-hover:scale-105 transition-transform duration-500 group-hover:opacity-100 opacity-90 w-full h-full object-cover">
+                        </div>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
+                            <span class="bg-[#D4AF37] text-black text-[10px] font-bold px-2 py-0.5 uppercase rounded-sm">New</span>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-white font-medium text-base font-['Montserrat']">Bold Statement Tee</h4>
+                        <p class="text-[#D4AF37] font-mono text-sm mt-1">₦10,000</p>
+                        <button class="mt-3 w-full text-xs font-semibold uppercase tracking-wider py-2 border border-neutral-700 rounded text-neutral-400 hover:text-white hover:border-white transition-colors">Select &amp; Pay</button>
+                    </div>
+                </div>
+
+                <!-- OPTION 4: CREST EDITION -->
+                <div class="group cursor-pointer" onclick="openCheckout('Royal Crest Edition', 10000)">
+                    <div class="relative bg-neutral-900 rounded-lg overflow-hidden border border-white/5 group-hover:border-[#D4AF37]/50 transition-all duration-300">
+                        <div class="aspect-[4/5] overflow-hidden">
+                            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/779944c5-c985-4554-913f-83675c9a6c28_1600w.png" alt="Crest Edition" class="group-hover:scale-105 transition-transform duration-500 group-hover:opacity-100 opacity-90 w-full h-full object-cover">
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <div class="bg-black/80 backdrop-blur text-white p-1.5 rounded-full border border-white/10">
+                                <svg data-lucide="crown" class="w-4 h-4 text-[#D4AF37]"></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                        <h4 class="text-white font-medium text-base font-['Montserrat']">Royal Crest Edition</h4>
+                        <p class="text-[#D4AF37] font-mono text-sm mt-1">₦10,000</p>
+                        <button class="mt-3 w-full text-xs font-semibold uppercase tracking-wider py-2 border border-neutral-700 rounded text-neutral-400 hover:text-white hover:border-white transition-colors">Select &amp; Pay</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 6: WHY THIS MATTERS -->
+    <section class="bg-black py-20 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+            
+            <div class="text-center md:text-left">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neutral-900 border border-[#D4AF37]/30 text-[#D4AF37] mb-6">
+                    <svg data-lucide="crown" class="w-6 h-6"></svg>
+                </div>
+                <h3 class="text-white text-lg font-semibold mb-3">Wear your courage</h3>
+                <p class="text-neutral-500 text-sm leading-relaxed">Every piece is a public declaration against fear and terror.</p>
+            </div>
+
+            <div class="text-center md:text-left">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neutral-900 border border-[#D4AF37]/30 text-[#D4AF37] mb-6">
+                    <svg data-lucide="users" class="w-6 h-6"></svg>
+                </div>
+                <h3 class="text-white text-lg font-semibold mb-3">Unite the nation</h3>
+                <p class="text-neutral-500 text-sm leading-relaxed">Join thousands of Nigerians choosing strength over panic.</p>
+            </div>
+
+            <div class="text-center md:text-left">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-neutral-900 border border-[#D4AF37]/30 text-[#D4AF37] mb-6">
+                    <svg data-lucide="shirt" class="w-6 h-6"></svg>
+                </div>
+                <h3 class="text-white text-lg font-semibold mb-3">Quality &amp; comfort</h3>
+                <p class="text-neutral-500 text-sm leading-relaxed">Premium cotton and durable print — comfort you can wear daily.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 7: SOCIAL PROOF / MINI TESTIMONIES -->
+    <section class="relative py-32 px-6 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&amp;w=2000&amp;auto=format&amp;fit=crop" alt="Store background" class="absolute inset-0 w-full h-full object-cover opacity-20 grayscale">
+        <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
+
+        <div class="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-xl">
+                <div class="flex gap-1 mb-4 text-[#D4AF37]">
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                </div>
+                <p class="text-neutral-200 text-sm mb-4">“Wearing this changed my morning mood — I felt brave.”</p>
+                <p class="text-[#D4AF37] text-xs font-bold uppercase">— Ada, Lagos</p>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-xl md:translate-y-4">
+                <div class="flex gap-1 mb-4 text-[#D4AF37]">
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                </div>
+                <p class="text-neutral-200 text-sm mb-4">“My street saw it and asked — movement everywhere.”</p>
+                <p class="text-[#D4AF37] text-xs font-bold uppercase">— Emeka, Abuja</p>
+            </div>
+
+            <div class="bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-xl">
+                <div class="flex gap-1 mb-4 text-[#D4AF37]">
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                    <svg data-lucide="star" class="w-4 h-4 fill-current"></svg>
+                </div>
+                <p class="text-neutral-200 text-sm mb-4">“We wore it to the market — people asked where we got it.”</p>
+                <p class="text-[#D4AF37] text-xs font-bold uppercase">— Chinyere, Onitsha</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: HOW IT WORKS -->
+    <section class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left relative">
+            <div class="hidden md:block absolute top-6 left-1/6 right-1/6 h-px bg-neutral-800 -z-10"></div>
+            <div class="">
+                <span class="block text-6xl font-['Montserrat'] font-bold text-neutral-800 mb-4">01</span>
+                <h3 class="text-white font-semibold text-lg mb-2">Order Now</h3>
+                <p class="text-neutral-500 text-sm">Choose your pack and pay securely via Paystack.</p>
+            </div>
+            <div>
+                <span class="block text-6xl font-['Montserrat'] font-bold text-neutral-800 mb-4">02</span>
+                <h3 class="text-white font-semibold text-lg mb-2">We Prepare &amp; Bless</h3>
+                <p class="text-neutral-500 text-sm">Your item is packaged with the King Energy card.</p>
+            </div>
+            <div class="">
+                <span class="block text-6xl font-['Montserrat'] font-bold text-neutral-800 mb-4">03</span>
+                <h3 class="text-white font-semibold text-lg mb-2">We Ship Fast</h3>
+                <p class="text-neutral-500 text-sm">Delivery nationwide + tracking. Wear it. Share it.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: SCARCITY BANNER -->
+    <section class="bg-gradient-to-r from-[#8B0000] to-[#D4AF37] py-4 px-6 text-center">
+        <p class="text-white font-bold text-sm md:text-base uppercase tracking-wider flex items-center justify-center gap-2">
+            <svg data-lucide="alert-circle" class="w-5 h-5"></svg>
+            Limited Drop: Only the first 2,000 Founding King Combos available.
+        </p>
+    </section>
+
+    <!-- SECTION 10: GUARANTEE -->
+    <section class="py-16 px-6 border-b border-white/5 bg-neutral-900/30">
+        <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex items-start gap-4">
+                <svg data-lucide="shield-check" class="w-8 h-8 text-[#D4AF37] shrink-0"></svg>
+                <div class="">
+                    <h4 class="text-white font-semibold text-sm mb-1">Satisfaction Promise</h4>
+                    <p class="text-neutral-500 text-xs leading-relaxed">If your shirt is damaged on arrival, we’ll replace it within 7 days. (Refunds only on manufacturing defects.)</p>
+                </div>
+            </div>
+            <div class="flex items-start gap-4">
+                <svg data-lucide="lock" class="w-8 h-8 text-[#D4AF37] shrink-0"></svg>
+                <div class="">
+                    <h4 class="text-white font-semibold text-sm mb-1">Secure Payment</h4>
+                    <p class="text-neutral-500 text-xs leading-relaxed">Paystack / Flutterwave accepted. Your card details are safe.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: FAQ -->
+    <section class="py-24 px-6 max-w-3xl mx-auto">
+        <h2 class="text-center font-['Montserrat'] text-2xl text-white font-semibold mb-12">Common Questions</h2>
+        <div class="space-y-4">
+            <details class="group bg-neutral-900 border border-white/5 rounded-lg open:border-[#D4AF37]/30 transition-colors">
+                <summary class="flex justify-between items-center cursor-pointer p-6 font-medium text-white select-none">
+                    When will I receive my order?
+                    <svg data-lucide="chevron-down" class="w-4 h-4 text-neutral-500 group-open:rotate-180 transition-transform"></svg>
+                </summary>
+                <div class="px-6 pb-6 text-neutral-400 text-sm leading-relaxed">
+                    Orders ship same day or next business day. Delivery 2–5 days nationwide.
+                </div>
+            </details>
+            <details class="group bg-neutral-900 border border-white/5 rounded-lg open:border-[#D4AF37]/30 transition-colors">
+                <summary class="flex justify-between items-center cursor-pointer p-6 font-medium text-white select-none">
+                    Can I get international shipping?
+                    <svg data-lucide="chevron-down" class="w-4 h-4 text-neutral-500 group-open:rotate-180 transition-transform"></svg>
+                </summary>
+                <div class="px-6 pb-6 text-neutral-400 text-sm leading-relaxed">
+                    Yes — DM us for rates and payment in USD.
+                </div>
+            </details>
+            <details class="group bg-neutral-900 border border-white/5 rounded-lg open:border-[#D4AF37]/30 transition-colors">
+                <summary class="flex justify-between items-center cursor-pointer p-6 font-medium text-white select-none">
+                    Are these officially blessed?
+                    <svg data-lucide="chevron-down" class="w-4 h-4 text-neutral-500 group-open:rotate-180 transition-transform"></svg>
+                </summary>
+                <div class="px-6 pb-6 text-neutral-400 text-sm leading-relaxed">
+                    Each Founding King Combo includes a printed declaration card and a short, meaningful activation script.
+                </div>
+            </details>
+        </div>
+    </section>
+
+    <!-- SECTION 12: MID-PAGE CTA -->
+    <section class="py-24 px-6 bg-neutral-900 border-y border-white/5">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="font-['Montserrat'] text-3xl md:text-4xl text-white font-semibold tracking-tight mb-6">
+                Reserve Your King Energy Now
+            </h2>
+            <div class="inline-block bg-[#050505] border border-[#D4AF37]/30 px-6 py-2 rounded-full mb-8">
+                <span class="text-[#D4AF37] font-mono text-lg">Starts at ₦10,000</span>
+            </div>
+            <a href="#products" class="inline-flex items-center gap-2 bg-[#D4AF37] text-black px-8 py-4 rounded-lg font-semibold uppercase tracking-wide hover:bg-white transition-colors duration-300">
+                Join The Founding Kings Today <svg data-lucide="arrow-right" class="w-4 h-4"></svg>
+            </a>
+            <p class="mt-4 text-neutral-500 text-sm">Limited stock available.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 15: FINAL CLOSE -->
+    <section class="py-24 px-6 text-center max-w-3xl mx-auto">
+        <p class="text-lg md:text-xl text-neutral-300 font-medium leading-relaxed mb-6">
+            Nigeria — from the ashes of fear a new identity rises. Show the world you choose courage today.
+        </p>
+        <h2 class="font-['Montserrat'] text-[#D4AF37] text-2xl md:text-4xl font-extrabold tracking-tight uppercase">
+            KING ENERGY is the New Nigeria… Wear Your Courage.
+        </h2>
+    </section>
+
+    <!-- SECTION 16: FOOTER -->
+    <footer class="md:pb-16 bg-black border-white/10 border-t pt-16 pr-6 pb-32 pl-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-center md:text-left">
+            <div class="">
+                <span class="font-['Montserrat'] text-white font-bold text-xl tracking-tight">KING ENERGY</span>
+                <p class="text-xs text-neutral-500 mt-2">© 2025 King Energy Movement.</p>
+            </div>
+            <div class="text-neutral-500 text-sm space-y-2 md:space-y-0 md:space-x-6 flex flex-col md:flex-row">
+                <span class="">WhatsApp: +234 XXX XXX XXXX</span>
+                <span class="">IG: @KingEnergyMovement</span>
+            </div>
+            <div class="flex gap-6 text-xs text-neutral-600">
+                <a href="#" class="hover:text-white transition-colors">Terms</a>
+                <a href="#" class="hover:text-white transition-colors">Shipping</a>
+                <a href="#" class="hover:text-white transition-colors">Privacy</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MOBILE STICKY CTA -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 bg-black/90 backdrop-blur-lg border-t border-white/10 md:hidden z-40">
+        <a href="#products" class="block w-full bg-[#D4AF37] text-black text-center py-3 rounded-lg font-bold uppercase text-sm shadow-[0_0_15px_rgba(212,175,55,0.3)]">
+            Order King Energy Now
+        </a>
+    </div>
+
+    <!-- CHECKOUT OVERLAY (HIDDEN INITIALLY) -->
+    <div id="checkout-overlay" class="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm hidden-modal flex items-center justify-center p-4 overflow-y-auto">
+        <div class="bg-[#0A0A0A] border border-white/10 w-full max-w-lg rounded-xl shadow-2xl relative flex flex-col max-h-[90vh]">
+            
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-white/10 flex justify-between items-center sticky top-0 bg-[#0A0A0A] z-10 rounded-t-xl">
+                <div>
+                    <h2 class="text-white font-['Montserrat'] font-semibold text-lg">Secure Checkout</h2>
+                    <p class="text-neutral-500 text-xs">Complete your order below.</p>
+                </div>
+                <button onclick="closeCheckout()" class="text-neutral-400 hover:text-white p-2">
+                    <svg data-lucide="x" class="w-6 h-6"></svg>
+                </button>
+            </div>
+
+            <!-- Modal Content (Form) -->
+            <div class="p-6 overflow-y-auto">
+                
+                <!-- Product Summary -->
+                <div class="bg-neutral-900/50 p-4 rounded-lg mb-6 border border-white/5 flex items-center justify-between">
+                    <div>
+                        <p class="text-xs text-neutral-500 uppercase tracking-wider mb-1">You are buying</p>
+                        <h3 id="modal-product-name" class="text-white font-semibold">Product Name</h3>
+                    </div>
+                    <div class="text-right">
+                        <p id="modal-product-price" class="text-[#D4AF37] font-mono font-bold text-lg">₦0.00</p>
+                    </div>
+                </div>
+
+                <!-- Form -->
+                <form id="paymentForm" class="space-y-4">
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-neutral-400 mb-1">First Name</label>
+                            <input type="text" id="first-name" required="" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="Emeka">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-neutral-400 mb-1">Last Name</label>
+                            <input type="text" id="last-name" required="" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="Adeyemi">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-medium text-neutral-400 mb-1">Email Address</label>
+                        <input type="email" id="email-address" required="" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="you@example.com">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-medium text-neutral-400 mb-1">Phone Number</label>
+                        <input type="tel" id="phone-number" required="" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="080 1234 5678">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-medium text-neutral-400 mb-1">Delivery Address</label>
+                        <textarea id="address" required="" rows="2" class="w-full bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#D4AF37] transition-colors" placeholder="Street address, City, State"></textarea>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-neutral-400 mb-1">Size</label>
+                            <div class="relative">
+                                <select id="size" class="w-full appearance-none bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#D4AF37] transition-colors cursor-pointer">
+                                    <option value="S">Small</option>
+                                    <option value="M" selected="">Medium</option>
+                                    <option value="L">Large</option>
+                                    <option value="XL">Extra Large</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-neutral-500">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-neutral-400 mb-1">Quantity</label>
+                            <div class="relative">
+                                <select id="quantity" onchange="updateTotal()" class="w-full appearance-none bg-neutral-900 border border-neutral-800 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-[#D4AF37] transition-colors cursor-pointer">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="5">5</option>
+                                </select>
+                                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-neutral-500">
+                                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"></path></svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4">
+                        <button type="submit" class="w-full bg-[#D4AF37] text-black font-bold py-3.5 rounded-lg hover:bg-white transition-colors uppercase tracking-wide flex items-center justify-center gap-2">
+                            Pay Now <span id="btn-amount">₦0.00</span> <svg data-lucide="lock" class="w-4 h-4"></svg>
+                        </button>
+                        <p class="text-[10px] text-neutral-500 text-center mt-3 flex items-center justify-center gap-1">
+                            <svg data-lucide="shield-check" class="w-3 h-3"></svg> Secured by Paystack
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Checkout State
+        let currentProduct = "";
+        let basePrice = 0;
+
+        // Modal Elements
+        const overlay = document.getElementById('checkout-overlay');
+        const modalProductName = document.getElementById('modal-product-name');
+        const modalProductPrice = document.getElementById('modal-product-price');
+        const btnAmount = document.getElementById('btn-amount');
+        const quantitySelect = document.getElementById('quantity');
+        const paymentForm = document.getElementById('paymentForm');
+
+        function openCheckout(productName, price) {
+            currentProduct = productName;
+            basePrice = price;
+            
+            // Update Modal Content
+            modalProductName.textContent = productName;
+            quantitySelect.value = "1"; // Reset quantity
+            updateTotal();
+            
+            // Show Modal
+            overlay.classList.remove('hidden-modal');
+            overlay.classList.add('visible-modal');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeCheckout() {
+            overlay.classList.remove('visible-modal');
+            overlay.classList.add('hidden-modal');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function updateTotal() {
+            const qty = parseInt(quantitySelect.value);
+            const total = basePrice * qty;
+            const formatted = '₦' + total.toLocaleString();
+            
+            modalProductPrice.textContent = formatted;
+            btnAmount.textContent = formatted;
+        }
+
+        // Close on clicking outside
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) closeCheckout();
+        });
+
+        // Paystack Integration
+        paymentForm.addEventListener('submit', payWithPaystack);
+
+        function payWithPaystack(e) {
+            e.preventDefault();
+
+            const firstName = document.getElementById("first-name").value;
+            const lastName = document.getElementById("last-name").value;
+            const email = document.getElementById("email-address").value;
+            const phone = document.getElementById("phone-number").value;
+            const size = document.getElementById("size").value;
+            const qty = document.getElementById("quantity").value;
+            
+            // Calculate total amount in kobo
+            const amount = (basePrice * qty) * 100;
+
+            const handler = PaystackPop.setup({
+                // REPLACE THIS WITH YOUR OWN PUBLIC KEY
+                key: 'pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 
+                email: email,
+                amount: amount,
+                currency: 'NGN',
+                metadata: {
+                    custom_fields: [
+                        { display_name: "First Name", variable_name: "first_name", value: firstName },
+                        { display_name: "Last Name", variable_name: "last_name", value: lastName },
+                        { display_name: "Phone", variable_name: "phone", value: phone },
+                        { display_name: "Product", variable_name: "product", value: currentProduct },
+                        { display_name: "Size", variable_name: "size", value: size },
+                        { display_name: "Quantity", variable_name: "quantity", value: qty }
+                    ]
+                },
+                callback: function(response) {
+                    // Payment successful
+                    alert('Payment successful! Reference: ' + response.reference);
+                    closeCheckout();
+                    // Optionally redirect to a thank you page
+                },
+                onClose: function() {
+                    // User closed popup
+                    alert('Transaction was not completed.');
+                }
+            });
+
+            handler.openIframe();
+        }
+    </script>
+
+
+</body></html>
